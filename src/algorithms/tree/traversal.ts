@@ -1,13 +1,25 @@
 import TreeNode from "../../dataStructures/tree.ts";
 
-export function inorder(root: TreeNode | null) {
-  if (root === null) {
-    return;
+export function inorder(root: TreeNode | null): number[] {
+  function _inorder(root: TreeNode | null, result: number[]) {
+    if (root === null) {
+      return;
+    }
+
+    _inorder(root.left, result);
+    result.push(root.val);
+    _inorder(root.right, result);
   }
 
-  inorder(root.left);
-  console.log(root.val);
-  inorder(root.right);
+  if (root === null) {
+    return [];
+  }
+
+  const result: number[] = [];
+
+  _inorder(root, result);
+
+  return result;
 }
 
 export function preorder(root: TreeNode | null) {
