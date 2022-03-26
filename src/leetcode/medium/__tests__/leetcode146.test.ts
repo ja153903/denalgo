@@ -9,4 +9,3 @@ Deno.test("146. LRU Cache", () => {
 
   assertEquals(lruCache.get(1), 1);
 });
-
