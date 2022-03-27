@@ -68,6 +68,10 @@ class PriorityQueue<T> {
     return null;
   }
 
+  get length(): number {
+    return this.heap.length;
+  }
+
   shiftUp(i: number) {
     while (
       i > 0 && this.heap[this.getParent(i)].priority < this.heap[i].priority
