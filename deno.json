@@ -1,7 +1,7 @@
 {
   "fmt": {
     "files": {
-      "include": ["src/"],
+      "include": ["src/"]
     },
     "options": {
       "useTabs": false,
