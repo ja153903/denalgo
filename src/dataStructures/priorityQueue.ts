@@ -15,7 +15,7 @@
  * Pattern: (item, priority) we can flip the polarity of priority to get MinHeap otherwise default is MaxHeap
  */
 
-export class PriorityQueueNode<T> {
+class PriorityQueueNode<T> {
   value: T;
   priority: number;
 
@@ -128,4 +128,5 @@ class PriorityQueue<T> {
   }
 }
 
+export { PriorityQueueNode };
 export default PriorityQueue;

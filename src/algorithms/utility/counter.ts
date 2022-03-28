@@ -1,4 +1,4 @@
-export function generateCounter<T>(items: Array<T>): Map<T, number> {
+function generateCounter<T>(items: Array<T>): Map<T, number> {
   const counter = new Map<T, number>();
 
   for (const item of items) {
@@ -7,3 +7,5 @@ export function generateCounter<T>(items: Array<T>): Map<T, number> {
 
   return counter;
 }
+
+export { generateCounter };

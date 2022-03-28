@@ -1,4 +1,4 @@
-export function buildGraphFromEdges<T>(
+function buildGraphFromEdges<T>(
   edges: Array<Array<T>>,
 ): Map<T, Array<T>> {
   const graph = new Map<T, Array<T>>();
@@ -13,7 +13,7 @@ export function buildGraphFromEdges<T>(
   return graph;
 }
 
-export function buildIndegreeFromEdges<T>(
+function buildIndegreeFromEdges<T>(
   edges: Array<Array<T>>,
 ): Map<T, number> {
   const indegree = new Map<T, number>();
@@ -26,3 +26,5 @@ export function buildIndegreeFromEdges<T>(
 
   return indegree;
 }
+
+export { buildGraphFromEdges, buildIndegreeFromEdges };

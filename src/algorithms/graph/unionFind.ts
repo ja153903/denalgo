@@ -1,22 +1,22 @@
-export default class UnionFind {
+class UnionFind {
   parent: number[];
   rank: number[];
   size: number;
-  
+
   constructor(size: number) {
     this.size = size;
     this.parent = this._initializeParent();
     this.rank = this._initializeRank();
   }
-  
+
   find(u: number): number {
     if (u !== this.parent[u]) {
       this.parent[u] = this.find(this.parent[u]);
     }
-    
+
     return this.parent[u];
   }
-  
+
   union(u: number, v: number) {
     const pu = this.find(u);
     const pv = this.find(v);
@@ -31,23 +31,25 @@ export default class UnionFind {
       }
     }
   }
-  
+
   _initializeParent(): number[] {
     const result = [];
-    for (let i = 0; i < this.size; i++)  {
+    for (let i = 0; i < this.size; i++) {
       result.push(i);
     }
-    
+
     return result;
   }
-  
+
   _initializeRank(): number[] {
     const result = [];
-    
-    for (let i = 0; i < this.size; i++)  {
+
+    for (let i = 0; i < this.size; i++) {
       result.push(0);
     }
-    
+
     return result;
   }
 }
+
+export default UnionFind;
