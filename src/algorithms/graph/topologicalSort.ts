@@ -26,6 +26,11 @@ function khans<T>(edges: Array<Array<T>>) {
 
     for (const node of next) {
       const count = indegree.get(node) ?? 0;
+      // This condition here is something we should consider when
+      // trying to look for a cycle
+      // if there exists a node whose indegree is already less than
+      // or equal to 0, this means that we've already processed this or
+      // it should be on the queue therefore, this is a cycle
       if (count <= 0) {
         continue;
       }
