@@ -4,7 +4,7 @@ function binarySearch<T>(items: T[], target: T): number {
   let right = items.length - 1;
 
   while (left <= right) {
-    const mid = Math.floor(left + (right - left) >> 1);
+    const mid = Math.floor((right + left) / 2);
 
     if (items[mid] === target) {
       return mid;
