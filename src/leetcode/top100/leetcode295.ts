@@ -26,7 +26,7 @@ class MedianFinder {
       }
     } else {
       this.largeHeap.push(num, -num);
-      const minValue = this.largeHeap.pop()
+      const minValue = this.largeHeap.pop();
       if (minValue) {
         this.smallHeap.push(minValue.value, -minValue.priority);
       }
@@ -45,7 +45,7 @@ class MedianFinder {
 
       return 0;
     }
-      return this.largeHeap.peek()?.value ?? 0;
+    return this.largeHeap.peek()?.value ?? 0;
   }
 }
 

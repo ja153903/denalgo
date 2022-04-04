@@ -6,7 +6,13 @@ function combinationSum(candidates: number[], target: number): number[][] {
   return result;
 }
 
-function _backtrack(candidates: number[], target: number, result: number[][], current: number[], start: number) {
+function _backtrack(
+  candidates: number[],
+  target: number,
+  result: number[][],
+  current: number[],
+  start: number,
+) {
   if (target < 0) {
     return;
   }
@@ -16,7 +22,10 @@ function _backtrack(candidates: number[], target: number, result: number[][], cu
   } else {
     for (let i = start; i < candidates.length; i++) {
       if (target - candidates[i] >= 0) {
-        _backtrack(candidates, target - candidates[i], result, [...current, candidates[i]], i);
+        _backtrack(candidates, target - candidates[i], result, [
+          ...current,
+          candidates[i],
+        ], i);
       }
     }
   }
