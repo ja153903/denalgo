@@ -42,6 +42,6 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
     }
   }
 
-  return indegree.filter(value => value === 0).length === numCourses;
+  return indegree.filter((value) => value === 0).length === numCourses;
 }
 export default canFinish;

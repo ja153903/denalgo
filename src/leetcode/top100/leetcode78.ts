@@ -6,7 +6,12 @@ function subsets(nums: number[]): number[][] {
   return result;
 }
 
-function _backtrack(nums: number[], start: number, result: number[][], current: number[]) {
+function _backtrack(
+  nums: number[],
+  start: number,
+  result: number[][],
+  current: number[],
+) {
   result.push([...current]);
 
   for (let i = start; i < nums.length; i++) {
