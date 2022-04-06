@@ -77,11 +77,11 @@ class DoublyLinkedList<T> {
 
     return result.join("");
   }
-  
+
   get tail(): T | null {
     return this._tail?.prev?.val ?? null;
   }
-  
+
   get head(): T | null {
     return this._head?.next?.val ?? null;
   }
