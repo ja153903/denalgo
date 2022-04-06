@@ -11,23 +11,23 @@ class DoublyLinkedListNode<T> {
 }
 
 class DoublyLinkedList<T> {
-  head: DoublyLinkedListNode<T> | null;
-  tail: DoublyLinkedListNode<T> | null;
+  _head: DoublyLinkedListNode<T> | null;
+  _tail: DoublyLinkedListNode<T> | null;
 
   constructor(defaultValue: T) {
-    this.head = new DoublyLinkedListNode<T>(defaultValue);
-    this.tail = new DoublyLinkedListNode<T>(defaultValue);
+    this._head = new DoublyLinkedListNode<T>(defaultValue);
+    this._tail = new DoublyLinkedListNode<T>(defaultValue);
 
-    this.head.next = this.tail;
-    this.tail.prev = this.head;
+    this._head.next = this._tail;
+    this._tail.prev = this._head;
   }
 
   addTail(val: T) {
-    if (!this.tail) {
+    if (!this._tail) {
       return;
     }
 
-    const trueTail = this.tail.prev;
+    const trueTail = this._tail.prev;
     if (!trueTail) {
       return;
     }
@@ -35,16 +35,16 @@ class DoublyLinkedList<T> {
     const node = new DoublyLinkedListNode<T>(val);
 
     trueTail.next = node;
-    node.next = this.tail;
+    node.next = this._tail;
     node.prev = trueTail;
   }
 
   removeTail(): T | null {
-    if (!this.tail) {
+    if (!this._tail) {
       return null;
     }
 
-    const trueTail = this.tail.prev;
+    const trueTail = this._tail.prev;
     if (!trueTail) {
       return null;
     }
@@ -54,21 +54,21 @@ class DoublyLinkedList<T> {
       return null;
     }
 
-    prev.next = this.tail;
-    this.tail.prev = prev;
+    prev.next = this._tail;
+    this._tail.prev = prev;
 
     return trueTail?.val ?? null;
   }
 
   logList(): string {
-    let start = this.head?.next ?? null;
+    let start = this._head?.next ?? null;
     if (!start) {
       return "";
     }
 
     const result: string[] = [];
 
-    while (start && start !== this.tail) {
+    while (start && start !== this._tail) {
       const value: T = start.val;
       result.push(`${value}`);
 
@@ -76,6 +76,14 @@ class DoublyLinkedList<T> {
     }
 
     return result.join("");
+  }
+  
+  get tail(): T | null {
+    return this._tail?.prev?.val ?? null;
+  }
+  
+  get head(): T | null {
+    return this._head?.next?.val ?? null;
   }
 }
 
