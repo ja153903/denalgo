@@ -5,10 +5,10 @@ function containsDuplicate(nums: number[]): boolean {
     if (seen.has(num)) {
       return true;
     }
-    
+
     seen.add(num);
   }
-  
+
   return false;
 }
 

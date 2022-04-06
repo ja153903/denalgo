@@ -4,7 +4,7 @@ function swapPairs(head: ListNode | null): ListNode | null {
   if (head === null) {
     return null;
   }
-  
+
   if (head.next === null) {
     return head;
   }
@@ -15,7 +15,7 @@ function swapPairs(head: ListNode | null): ListNode | null {
   const next = swapPairs(second.next);
   second.next = first;
   first.next = next;
-  
+
   return second;
 }
 

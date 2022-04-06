@@ -8,13 +8,13 @@ function minimumSemesters(n: number, relations: number[][]): number {
     } else {
       graph.set(prevCourse - 1, new Set([currCourse - 1]));
     }
-    
+
     indegree[currCourse - 1]++;
   }
-  
+
   let minSems = 0;
   const queue: number[] = [];
-  
+
   indegree.forEach((value, index) => {
     if (value === 0) {
       queue.push(index);
@@ -24,7 +24,7 @@ function minimumSemesters(n: number, relations: number[][]): number {
   if (queue.length === 0) {
     return -1;
   }
-  
+
   while (queue.length) {
     const size = queue.length;
 
@@ -39,7 +39,7 @@ function minimumSemesters(n: number, relations: number[][]): number {
         if (count === 0) {
           return -1;
         }
-        
+
         indegree[nextCourse]--;
 
         if (count - 1 === 0) {
@@ -47,7 +47,7 @@ function minimumSemesters(n: number, relations: number[][]): number {
         }
       }
     }
-    
+
     minSems++;
   }
 

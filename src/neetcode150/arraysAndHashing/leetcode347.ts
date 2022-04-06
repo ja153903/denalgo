@@ -9,7 +9,7 @@ function topKFrequent(nums: number[], k: number): number[] {
     // create min heap
     pq.push(num, -count);
   }
-  
+
   while (pq.length > k) {
     pq.pop();
   }
