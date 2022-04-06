@@ -12,51 +12,70 @@ class DoublyLinkedListNode<T> {
 
 class DoublyLinkedList<T> {
   head: DoublyLinkedListNode<T> | null;
+  tail: DoublyLinkedListNode<T> | null;
 
-  constructor() {
-    this.head = null;
+  constructor(defaultValue: T) {
+    this.head = new DoublyLinkedListNode<T>(defaultValue);
+    this.tail = new DoublyLinkedListNode<T>(defaultValue);
+
+    this.head.next = this.tail;
+    this.tail.prev = this.head;
   }
 
   addTail(val: T) {
-    if (this.head === null) {
-      this.head = new DoublyLinkedListNode<T>(val);
+    if (!this.tail) {
+      return;
+    }
+
+    const trueTail = this.tail.prev;
+    if (!trueTail) {
       return;
     }
 
     const node = new DoublyLinkedListNode<T>(val);
 
-    const prev = this.head.prev;
-    if (prev) {
-      node.next = this.head;
-      node.prev = prev;
-      prev.next = node;
-      this.head.prev = node;
-    } else {
-      this.head.next = node;
-      this.head.prev = node;
-      node.next = this.head;
-      node.prev = this.head;
-    }
+    trueTail.next = node;
+    node.next = this.tail;
+    node.prev = trueTail;
   }
 
   removeTail(): T | null {
-    if (this.head === null) {
+    if (!this.tail) {
       return null;
     }
 
-    if (this.head && this.head.prev === null || this.head === this.head.prev) {
-      const value = this.head.val;
-      this.head = null;
-      return value;
+    const trueTail = this.tail.prev;
+    if (!trueTail) {
+      return null;
     }
 
-    const prev = this.head.prev;
-    if (prev && prev.prev) {
-      prev.prev.next = this.head;
-      this.head.prev = prev.prev;
+    const prev = trueTail.prev;
+    if (!prev) {
+      return null;
     }
 
-    return prev?.val ?? null;
+    prev.next = this.tail;
+    this.tail.prev = prev;
+
+    return trueTail?.val ?? null;
+  }
+
+  logList(): string {
+    let start = this.head?.next ?? null;
+    if (!start) {
+      return "";
+    }
+
+    const result: string[] = [];
+
+    while (start && start !== this.tail) {
+      const value: T = start.val;
+      result.push(`${value}`);
+
+      start = start.next;
+    }
+
+    return result.join("");
   }
 }
 
