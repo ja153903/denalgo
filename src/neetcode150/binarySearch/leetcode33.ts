@@ -38,4 +38,4 @@ function search(nums: number[], target: number): number {
   return -1;
 }
 
-export default search
+export default search;
