@@ -1,6 +1,9 @@
 import ListNode from "../../dataStructures/list.ts";
 
-function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+function mergeTwoLists(
+  list1: ListNode | null,
+  list2: ListNode | null,
+): ListNode | null {
   if (!list1 && !list2) {
     return null;
   }

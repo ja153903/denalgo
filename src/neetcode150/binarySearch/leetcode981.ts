@@ -1,4 +1,4 @@
-type TimestampedValue = { value: string, timestamp: number };
+type TimestampedValue = { value: string; timestamp: number };
 
 class TimeMap {
   private map: Map<string, TimestampedValue[]>;
