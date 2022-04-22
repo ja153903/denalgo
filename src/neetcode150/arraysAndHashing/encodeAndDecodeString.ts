@@ -11,13 +11,13 @@ class Encoder {
     while (i < s.length) {
       const slash = s.indexOf("/", i);
       const size: number = parseInt(s.substring(i, slash));
-      const subresult: string[] = [];
+      let subresult = "";
 
       for (let j = slash + 1; j < slash + 1 + size; j++) {
-        subresult.push(s[j]);
+        subresult += s[j];
       }
 
-      result.push(subresult.join(""));
+      result.push(subresult);
 
       i = slash + 1 + size;
     }
