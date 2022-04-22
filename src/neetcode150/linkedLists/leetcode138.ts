@@ -5,7 +5,7 @@ function copyRandomList(head: Node | null): Node | null {
   // then go over the list another time connecting the results
   const map = new Map<Node | null, Node | null>();
   let runner = head;
-  
+
   while (runner) {
     const node = new Node(runner.val);
     map.set(runner, node);

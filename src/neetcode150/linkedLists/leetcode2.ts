@@ -1,6 +1,9 @@
 import ListNode from "../../dataStructures/list.ts";
 
-function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+function addTwoNumbers(
+  l1: ListNode | null,
+  l2: ListNode | null,
+): ListNode | null {
   const result = new ListNode(0);
   let runner = result;
 

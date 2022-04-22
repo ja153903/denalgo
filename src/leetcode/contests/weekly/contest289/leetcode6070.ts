@@ -15,7 +15,7 @@ function digitSum(s: string, k: number): string {
         .map((ch) => parseInt(ch))
         .reduce((a, b) => a + b)
         .toString();
-      
+
       for (const ch of curr) {
         currModified.push(ch);
       }

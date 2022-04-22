@@ -4,7 +4,13 @@ function maximumScore(scores: number[], edges: number[][]): number {
   // we should also keep track of the length of the edge here
   let maxResult = -1;
 
-  function dfs(graph: Map<number, Set<number>>, visited: Set<number>, current: number, scores: number, length: number) {
+  function dfs(
+    graph: Map<number, Set<number>>,
+    visited: Set<number>,
+    current: number,
+    scores: number,
+    length: number,
+  ) {
     if (visited.has(current)) {
       if (length >= 4) {
         maxResult = Math.max(maxResult, scores);
